@@ -1,3 +1,4 @@
 FROM adoptopenjdk/openjdk11
-ADD target/movie-info-service-0.0.1-SNAPSHOT.jar app.jar
+EXPOSE 8080
+COPY ./build/libs/movie-info-service-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java","-jar","app.jar"]
