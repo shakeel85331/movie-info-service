@@ -1,3 +1,3 @@
 FROM adoptopenjdk/openjdk11
-ADD build/libs/movie-info-service-0.0.1-SNAPSHOT.jar app.jar
+ADD target/movie-info-service-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java","-jar","app.jar"]
