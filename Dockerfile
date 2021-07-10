@@ -1,5 +1,3 @@
-FROM gradle:openjdk11 AS build
-
 ADD ./movie-info-service/complete /home/gradle/movie-info-service
 WORKDIR /home/gradle/movie-info-service
 RUN gradle bootJar
