@@ -1,6 +1,4 @@
-git clone https://github.com/shakeel85331/movie-info-service.git
-
-FROM gradle:jdk11 AS build
+FROM gradle:jdk8 AS build
 
 ADD ./movie-info-service /home/gradle/movie-info-service
 WORKDIR /home/gradle/movie-info-service
