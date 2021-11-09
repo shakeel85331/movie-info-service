@@ -25,6 +25,7 @@ jobs:
           echo "Valid message"
         else
           echo "Invalid message"
+          exit 1
         fi
         
     - name: Set up JDK 11
