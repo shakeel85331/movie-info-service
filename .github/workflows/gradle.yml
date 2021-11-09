@@ -24,7 +24,7 @@ jobs:
         if [[ "$message" =~ (PAY-[0-9]+ : [a-zA-Z .]+) ]]; then
           echo "Valid message"
         else
-          echo "Invalid message"
+          echo "$error_msg" >&2
           exit 1
         fi
         
