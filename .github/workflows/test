@@ -1,0 +1,30 @@
+name: Java CI
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 8
+      uses: actions/setup-java@v3
+      with:
+          distribution: 'adopt'
+          java-version: '8'
+    - name: folder structure
+      run: |
+        pwd
+        ls
+        
+    - name: Set up ant
+      run: |
+        sudo apt-get update
+        sudo apt-get install ant
+        ant -version
