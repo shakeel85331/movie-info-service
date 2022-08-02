@@ -20,6 +20,9 @@ jobs:
           java-version: '8'
     - name: folder structure
       run: |
+        echo "***** where is java home ****"
+        echo "$JAVA_HOME"
+        echo "****** current directory ****"
         pwd
         ls
         
