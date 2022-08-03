@@ -1,0 +1,31 @@
+name: Java CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 8
+      uses: actions/setup-java@v3
+      with:
+          distribution: 'adopt'
+          java-version: '8'
+
+        
+    - name: Set up ant
+      run: |
+        antversion=1.10.3
+        wget http://archive.apache.org/dist/ant/binaries/apache-ant-${antversion}-bin.tar.gz
+        sudo tar xvfvz apache-ant-${antversion}-bin.tar.gz -C /opt
+        sudo ln -sfn /opt/apache-ant-${antversion} /opt/ant
+        sudo sh -c 'echo ANT_HOME=/opt/ant >> /etc/environment'
+        sudo ln -sfn /opt/ant/bin/ant /usr/bin/ant
+        ant -version
