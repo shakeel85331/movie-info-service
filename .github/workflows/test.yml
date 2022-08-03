@@ -18,16 +18,14 @@ jobs:
       with:
           distribution: 'adopt'
           java-version: '8'
-    - name: folder structure
-      run: |
-        echo "***** where is java home ****"
-        echo "$JAVA_HOME"
-        echo "****** current directory ****"
-        pwd
-        ls
+
         
     - name: Set up ant
       run: |
-        sudo apt-get update
-        sudo apt-get install ant
+        antversion=1.10.3
+        wget http://archive.apache.org/dist/ant/binaries/apache-ant-${antversion}-bin.tar.gz
+        sudo tar xvfvz apache-ant-${antversion}-bin.tar.gz -C /opt
+        sudo ln -sfn /opt/apache-ant-${antversion} /opt/ant
+        sudo sh -c 'echo ANT_HOME=/opt/ant >> /etc/environment'
+        sudo ln -sfn /opt/ant/bin/ant /usr/bin/ant
         ant -version
